@@ -1,0 +1,51 @@
+tf.constant(value, dtype=None, shape=None, name=’Const’, verify_shape=False)
+Create a constant tensor.
+Example:
+# constant 1-D Tensor populated with value list.
+tensor = tf.constant([1,2,3,4,5,6,7]) => [1 2 3 4 5 6 7]
+# Constant 2-D tensor populated with scalar value -1.
+tensor = tf.constant(-1.0, shape=[2, 3]) => [[-1, -1, -1]
+                                              [-1, -1, -1]]
+Returns:
+A Constant Tensor.
+
+Sequences
+tf.linspace(start, stop, num, name=None)
+Generates values in an interval(间隔)
+A Sequence of num evenly-spaced values are generated beginning at start. If num>1, values in the sequence 
+increase by (stop - start)/(num - 1), so that the last one is exactly stop
+Example: tf.linspace(10.0, 12.0, 3, name=”linespace”) => [10.0 11.0 12.0]
+Returns:
+A Tensor. Has the same type as start. 1-D. The generated values.
+
+Variables
+Creation, Initialization,Saving and Loading
+When you train a model, you use variables to hold and update parameters. Variables are in memory buffers 
+containing tensors. They must be explicitly initialized and can be saved to disk(磁盘) during and after training. 
+You can later restore saved values to exercise or analyze the model.
+Examplle:
+# Create a variable
+w = tf.variable(<initial-value>, name=<optional-name>)
+# Use the variable in the graph like any Tensor.
+y = tf.matmul(w, …another variable or tensor…)
+# the overloaded operators are available too.
+z = tf.sigmoid(w + y)
+# Assign a new value to the variable with ‘assign()’ or a related method.
+w.assign(w + 1.0)
+w.assign_add(1.0)
+# Launch the graph in a session.
+With tf.Session() as sess:
+	# Run the variable initializer
+	Sess.run(w.initializer)
+	# … you now can run ops that use the value of ‘w’
+有变量定义时，是需要sess.run(initializer)
+
+Matplotlib 
+https://matplotlib.org/users/pyplot_tutorial.html
+plt.plot([1,2,3,4])
+画图时默认是以y轴对x轴
+# 画两张图
+plt.figure(1)
+plt.figure(2)
+plt.show()
+
