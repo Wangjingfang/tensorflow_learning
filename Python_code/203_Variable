@@ -1,0 +1,26 @@
+"""
+Dependencies:
+tensorflow: 1.1.6
+"""
+
+import tensorflow as tf
+
+var = tf.Variable(0)  # our first variabble in the "global_variable" set
+
+add_operation = tf.add(var, 1)
+update_operation = tf.assign(var, add_operation)
+
+with tf.Session() as sess:
+    # once define variables, you have to initialize them by doing this
+    sess.run(tf.global_variables_initializer())  # 拼写错误造成执行失败
+    for _ in range(3):
+        sess.run(update_operation)  # the first time var = 0,execute sess.run =>1,print it
+        print(sess.run(var))
+
+
+"""
+Traceback (most recent call last):
+  File "D:/python3/exlogs/203_variable.py", line 15, in <module>
+    sess.run(tf.global_variables_initilizer())
+AttributeError(尝试访问对象的未知属性): module 'tensorflow' has no attribute 'global_variables_initilizer'
+"""
