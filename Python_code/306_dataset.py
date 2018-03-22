@@ -5,7 +5,7 @@ import numpy as np
 from tensorflow.contrib.data import Dataset
 
 # load your data or create your data in here
-npx = np.random.uniform(-1, 1,(1000))          # x data
+npx = np.random.uniform(-1, 1,(1000,1))          # x data
 npy = np.power(npx, 2) + np.random.normal(0, 0.1, size=npx.shape)  # y data
 # split npx into sub-arrays
 npx_train, npx_test = np.split(npx, [800])      # training and test data
