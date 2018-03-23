@@ -1,0 +1,59 @@
+Python_tensorflow的store and load
+
+
+tensroboard的使用，在CMD上的指定目录下运行（地址错误）
+tensorboard –logdir=’logs/’
+
+
+Numpy.random.normal
+Numpy.random.normal(loc=0.0, scale=1.0, size=None)
+Draw random samples from a normal (Gaussian) distribution
+Parameters:	
+  loc : float or array_like of floats
+  Mean (“centre”) of the distribution.
+  scale : float or array_like of floats
+  Standard deviation (spread or “width”) of the distribution.
+  size : int or tuple of ints, optional
+  Output shape. If the given shape is, e.g., (m, n, k), then m * n * k samples are drawn. If size is None (default), a single value is returned if loc and scale are both scalars. Otherwise, np.broadcast(loc, scale).size samples are drawn.
+Returns:	
+out : ndarray or scalar
+Drawn samples from the parameterized normal distribution.
+Example:
+>>> mu, sigma = 0, 0.1 # mean and standard deviation 
+>>> s = np.random.normal(mu, sigma, 1000)
+ 
+
+Numpy.split
+Split an array into multiple sub-arrays
+Parameters:	
+  ary : ndarray
+  Array to be divided into sub-arrays.
+  indices_or_sections : int or 1-D array
+  If indices_or_sections is an integer, N, the array will be divided into N equal arrays along axis. If such a split is not possible, an error is raised.
+  If indices_or_sections is a 1-D array of sorted integers, the entries indicate where along axis the array is split. For example, [2, 3] would, for axis=0, result in
+    •	ary[:2]
+    •	ary[2:3]
+    •	ary[3:]
+  If an index exceeds the dimension of the array along axis, an empty sub-array is returned correspondingly.
+  axis : int, optional
+  The axis along which to split, default is 0.
+Returns:	
+  sub-arrays : list of ndarrays
+  A list of sub-arrays.
+Raises:	
+  ValueError
+  If indices_or_sections is given as an integer, but a split does not result in equal division.
+array_split:
+  Split an array into multiple sub-arrays of equal or near-equal size. Does not raise an exception if an equal division cannot be made.
+Examples:
+>>> x = np.arange(9.0)
+>>> np.split(x, 3)
+[array([ 0.,  1.,  2.]), array([ 3.,  4.,  5.]), array([ 6.,  7.,  8.])]
+>>> x = np.arange(8.0)
+>>> np.split(x, [3, 5, 6, 10])
+[array([ 0.,  1.,  2.]),
+ array([ 3.,  4.]),
+ array([ 5.]),
+ array([ 6.,  7.]),
+ array([], dtype=float64)]
+
